@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="start">
-      <nuxt-link to="#">
+      <nuxt-link to="register">
         <button class="start__btn">メールではじめる</button>
       </nuxt-link>
       <p class="start__info">
