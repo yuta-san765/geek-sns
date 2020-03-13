@@ -9,7 +9,7 @@
     </div>
     <div class="start">
       <nuxt-link to="register">
-        <button class="start__btn">メールではじめる</button>
+        <BaseButton>メールではじめる</BaseButton>
       </nuxt-link>
       <p class="start__info">
         すでにアカウントをお持ちですか？&emsp;<nuxt-link to="#"
@@ -26,7 +26,11 @@
 </template>
 
 <script>
+import BaseButton from '@/components/BaseButton'
 export default {
+  components: {
+    BaseButton
+  },
   data() {
     return {}
   }
@@ -34,13 +38,11 @@ export default {
 </script>
 
 <style lang="scss">
-$main-color: #34aa22;
-
 .title {
   text-align: center;
   color: white;
   &__img {
-    background-image: url(../assets/main_image.png);
+    background-image: url(~@/assets/main_image.png);
     background-size: cover;
     height: 648px;
     position: relative;
@@ -65,17 +67,6 @@ $main-color: #34aa22;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-align: center;
   padding: 20px;
-  &__btn {
-    width: 334px;
-    $height: 47px;
-    height: $height;
-    background-color: $main-color;
-    border: none;
-    border-radius: $height / 2;
-    margin-bottom: 20px;
-    color: white;
-    font-size: 16px;
-  }
   &__info {
     font-size: 12px;
     margin-bottom: 3px;
