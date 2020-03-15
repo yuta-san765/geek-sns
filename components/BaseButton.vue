@@ -41,7 +41,6 @@ export default {
   transition: all 0.2s linear;
   width: 334px;
   background-color: $main-color;
-  margin-bottom: 20px;
   color: white;
   font-size: 16px;
 }

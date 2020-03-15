@@ -24,7 +24,7 @@ export default {
     }
   },
   methods: {
-    updateVaue(event) {
+    updateValue(event) {
       this.$emit('input', event.target.value)
     }
   }
@@ -34,11 +34,12 @@ export default {
 <style lang="scss">
 .form-input {
   width: 100%;
-  height: 54px;
+  padding: 17px 10px;
   border: 1px solid #707070;
   border-radius: 15px;
   display: block;
   margin-bottom: 18px;
+  font-size: 15px;
 }
 .form-label {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

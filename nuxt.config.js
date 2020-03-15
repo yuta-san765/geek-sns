@@ -49,7 +49,23 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: `https://teachapi.herokuapp.com/`,
+    headers: {
+      common: {
+        'Content-Type': 'application/json'
+      }
+      // put: {
+      //   Authorization: 'Bearer ' + this.localStorage.token
+      // },
+      // delete: {
+      //   Authorization: 'Bearer ' + this.localStorage.token
+      // },
+      // post: {
+      //   Authorization: 'Bearer ' + this.localStorage.token
+      // }
+    }
+  },
   fontawesome: {
     imports: [
       {

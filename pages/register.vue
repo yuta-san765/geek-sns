@@ -1,10 +1,8 @@
 /* eslint-disable vue/attribute-hyphenation */
 <template>
   <div>
-    <div class="header-space">
-      <h1 class="header-space__title">ユーザー登録</h1>
-    </div>
-    <form class="form">
+    <TheHeader></TheHeader>
+    <form class="form" @submit.prevent="register">
       <div>
         <span class="form-label">プロフィール写真</span>
         <label class="form__picture-design" for="profile-picture">
@@ -16,25 +14,25 @@
         </label>
       </div>
       <BaseInput
-        v-model="user.name"
+        v-model="name"
         label="名前"
         placeholder="ギーク太郎"
         type="text"
       ></BaseInput>
       <BaseInput
-        v-model="user.email"
+        v-model="email"
         label="メールアドレス"
         placeholder="geek@sns.com"
         type="email"
       ></BaseInput>
       <BaseInput
-        v-model="user.password"
+        v-model="password"
         label="パスワード"
         placeholder="example"
         type="password"
       ></BaseInput>
       <BaseInput
-        v-model="user.password_confirmation"
+        v-model="password_confirmation"
         label="パスワード(確認)"
         placeholder="example"
         type="password"
@@ -47,37 +45,58 @@
 <script>
 import BaseInput from '@/components/BaseInput'
 import BaseButton from '@/components/BaseButton'
+import TheHeader from '@/components/TheHeader'
 export default {
   components: {
     BaseInput,
-    BaseButton
+    BaseButton,
+    TheHeader
   },
   data() {
     return {
-      user: {
-        name: '',
-        email: '',
-        passowrd: '',
-        passowrd_confirmation: ''
-      }
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: ''
+    }
+  },
+  methods: {
+    log() {
+      console.log('動作してる')
+    },
+    register() {
+      this.$store
+        .dispatch(
+          'register',
+          {
+            name: this.name,
+            bio: 'dammy',
+            email: this.email,
+            password: this.password,
+            password_confirmation: this.password_confirmation
+          },
+          { root: true }
+        )
+        // this.$axios
+        //   .$post('sign_up', {
+        //     sign_up_user_params: {
+        //       name: this.user.name,
+        //       bio: 'asdfasdf',
+        //       email: this.user.email,
+        //       passowrd: this.user.passowrd,
+        //       passowrd_confirmation: this.user.passowrd_confirmation
+        //     }
+        //   })
+        .then((res) => {
+          console.log(res)
+          this.$router.push('timeline')
+        })
     }
   }
 }
 </script>
 
 <style lang="scss">
-.header-space {
-  height: 80px;
-  background-color: $header-color;
-  text-align: center;
-  display: flex;
-  flex-direction: column-reverse;
-  &__title {
-    font-size: 15px;
-    font-weight: normal;
-    color: white;
-  }
-}
 .form {
   padding: 75px 20px;
   &__picture-input {

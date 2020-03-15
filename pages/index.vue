@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Login v-if="showLogin" @toggle-modal="showLogin = false"></Login>
     <div class="title">
       <div class="title__img"></div>
       <div class="title__title-container">
@@ -11,28 +12,42 @@
       <nuxt-link to="register">
         <BaseButton>メールではじめる</BaseButton>
       </nuxt-link>
-      <p class="start__info">
-        すでにアカウントをお持ちですか？&emsp;<nuxt-link to="#"
-          >ログイン</nuxt-link
-        >
-      </p>
-      <p class="start__info">
-        <nuxt-link to="#">利用規約</nuxt-link>と<nuxt-link to="#"
-          >プライバシーポリシー</nuxt-link
-        >に同意したことになります。
-      </p>
+      <div class="start__info">
+        <p>
+          すでにアカウントをお持ちですか？&emsp;<span
+            class="action-span"
+            @click="showLogin = !showLogin"
+            >ログイン</span
+          >
+        </p>
+        <p>
+          <nuxt-link to="#">利用規約</nuxt-link>と<nuxt-link to="#"
+            >プライバシーポリシー</nuxt-link
+          >に同意したことになります。
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import BaseButton from '@/components/BaseButton'
+import Login from '@/components/Login'
+
 export default {
   components: {
-    BaseButton
+    BaseButton,
+    Login
   },
   data() {
-    return {}
+    return {
+      showLogin: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showLogin = !this.showLogin
+    }
   }
 }
 </script>
@@ -68,8 +83,13 @@ export default {
   text-align: center;
   padding: 20px;
   &__info {
+    margin-top: 20px;
     font-size: 12px;
     margin-bottom: 3px;
   }
+}
+.action-span {
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>
