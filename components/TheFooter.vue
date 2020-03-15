@@ -18,7 +18,7 @@ export default {}
   padding: 15px 0;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid $border-color;
+  border: 1px solid $border-footer;
   &__icon {
     color: $main-color;
     font-size: 24px;

@@ -6,7 +6,7 @@
 
 <style>
 html {
-  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro';
+  font-family: 'Gill Sans', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro';
   font-size: 13px;
 }
 
