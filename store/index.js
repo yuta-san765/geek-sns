@@ -12,11 +12,9 @@ export const mutations = {
 
 export const actions = {
   register({ commit }, credentials) {
-    return this.$axios
-      .$post('sign_up', { sign_up_user_params: credentials })
-      .then((res) => {
-        console.log('user data is', res)
-        // commit('SET_USER_DATA', data)
-      })
+    return this.$axios.$post('sign_up', credentials).then((res) => {
+      console.log('user data is', res)
+      commit('SET_USER_DATA', res)
+    })
   }
 }

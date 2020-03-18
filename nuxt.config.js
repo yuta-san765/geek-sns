@@ -52,19 +52,17 @@ export default {
   axios: {
     baseURL: `https://teachapi.herokuapp.com/`,
     headers: {
-      common: {
-        'Content-Type': 'application/json'
-      }
-      // put: {
-      //   Authorization: 'Bearer ' + this.localStorage.token
-      // },
-      // delete: {
-      //   Authorization: 'Bearer ' + this.localStorage.token
-      // },
-      // post: {
-      //   Authorization: 'Bearer ' + this.localStorage.token
-      // }
+      common: { 'Content-Type': 'application/json' }
     }
+    // put: {
+    //   Authorization: 'Bearer ' + this.localStorage.token
+    // },
+    // delete: {
+    //   Authorization: 'Bearer ' + this.localStorage.token
+    // },
+    // post: {
+    //   Authorization: 'Bearer ' + this.localStorage.token
+    // }
   },
   fontawesome: {
     imports: [

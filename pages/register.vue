@@ -62,35 +62,41 @@ export default {
   },
   methods: {
     log() {
-      console.log('動作してる')
+      console.log(this.$axios.post)
     },
-    register() {
-      this.$store
-        .dispatch(
-          'register',
-          {
-            name: this.name,
-            bio: 'dammy',
-            email: this.email,
-            password: this.password,
-            password_confirmation: this.password_confirmation
-          },
-          { root: true }
-        )
-        // this.$axios
-        //   .$post('sign_up', {
-        //     sign_up_user_params: {
-        //       name: this.user.name,
-        //       bio: 'asdfasdf',
-        //       email: this.user.email,
-        //       passowrd: this.user.passowrd,
-        //       passowrd_confirmation: this.user.passowrd_confirmation
-        //     }
-        //   })
+    registerTest() {
+      const params = {
+        sign_up_user_params: {
+          name: this.name,
+          bio: 'dammy',
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.password_confirmation
+        }
+      }
+      this.$axios
+        .$post('sign_up', params)
         .then((res) => {
           console.log(res)
-          this.$router.push('timeline')
         })
+        .catch((e) => {
+          console.log(e)
+        })
+    },
+    register() {
+      const params = {
+        sign_up_user_params: {
+          name: this.name,
+          bio: 'dammy',
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.password_confirmation
+        }
+      }
+      this.$store.dispatch('register', params).then((res) => {
+        console.log(res)
+        this.$router.push('timeline')
+      })
     }
   }
 }
